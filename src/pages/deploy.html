@@ -10,31 +10,9 @@
         <img src="/assets/images/launch.svg" alt="" />
       </div>
     </section>
-    <section
-      class="grid"
-      style="margin-top: 4rem; --pico-grid-column-gap: 4rem"
-    >
-      <div style="--c: 1">
-        <h2>1. manually build and deploy</h2>
-        <ul>
-          <li>
-            Run <code>sssg --build</code> in your project directory to build
-            your site locally in the <code>./dist</code> directory.
-          </li>
-          <li>
-            <p>
-              Run a script of your creation to copy/upload the contents of the
-              <code>./dist</code> directory to the appropriate directory on your
-              server/host.
-            </p>
-            <p>
-              You can use scp, rsync, ftp, or any other method that you prefer.
-            </p>
-          </li>
-        </ul>
-      </div>
-      <div style="--c: 1">
-        <h2>2. deploy to our servers</h2>
+    <section class="grid">
+      <article>
+        <h4>1. deploy to our servers</h4>
         <p>
           Deploying to our servers is the easiest way to get your site online.
           It involves a single command:<br />
@@ -68,7 +46,26 @@
             </p>
           </li>
         </ul>
-      </div>
+      </article>
+      <article>
+        <h4>2. manually build and deploy</h4>
+        <ul>
+          <li>
+            Run <code>sssg --build</code> in your project directory to build
+            your site locally in the <code>./dist</code> directory.
+          </li>
+          <li>
+            <p>
+              Run a script of your creation to copy/upload the contents of the
+              <code>./dist</code> directory to the appropriate directory on your
+              server/host.
+            </p>
+            <p>
+              You can use scp, rsync, ftp, or any other method that you prefer.
+            </p>
+          </li>
+        </ul>
+      </article>
     </section>
   </main>
 </DefaultLayout>

@@ -1,65 +1,125 @@
-/* Use GDPR friendly fonts
-   Same fonts as from google fonts but GDPR-friendly.
-   Just change the host in the google fonts url to match this one. */
-@import url(https://api.fonts.coollabs.io/css?family=Inter:100,300,400,500,700,900);
-
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
-
-html {
-  font-size: 18px;
-  font-family: var(--font-sans);
+:root {
+  --brand-light: var(--violet-3);
+  --brand-dark: var(--violet-6);
+  --accent-light: var(--green-3);
+  --accent-dark: var(--green-6);
+  --brand-light-contrast: var(--gray-0);
+  --brand-dark-contrast: var(--violet-1);
+  @media (prefers-color-scheme: dark) {
+    --brand: var(--brand-dark);
+    --brand-contrast: var(--brand-dark-contrast);
+    --accent: var(--accent-dark);
+  }
+  --brand: var(--brand-light);
+  --brand-contrast: var(--brand-light-contrast);
+  --accent: var(--accent-light);
 }
 
 .container {
-  width: max(100% - 50rem, 1200px);
+  width: min(100% - 2rem, 1200px);
   margin-inline: auto;
 }
 
-nav {
-  display: flex;
-  justify-content: space-between;
-  padding-block: 1rem;
+main {
+  min-height: calc(
+    100vh - var(--size-10) - var(--size-fluid-4) - var(--size-11)
+  );
 }
 
-nav ul {
-  list-style-type: none;
-  display: flex;
-  padding: 0;
-  gap: 2rem;
-}
-
-nav li.logo {
-  font-weight: 400;
-  letter-spacing: 0.1em;
-}
-
-ul,
-ol {
-  padding-inline: 2rem;
-}
-
-li {
-  padding-block: 0.5rem;
-}
-
-a {
-  text-decoration: underline;
-}
-
-a:visited {
-  color: var(--blue-9);
-}
-
-.grid {
+:where(header) {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
-  gap: 2rem;
+  height: var(--size-10);
+  place-items: center;
+}
+
+:where(nav) {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+}
+
+:where(nav > ul) {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+}
+
+:where(nav > ul) > li {
+  color: var(--text-2);
+  margin-block-end: 0;
+}
+
+:where(nav > ul) > li.brand {
+  color: var(--brand);
+  font-weight: var(--font-weight-9);
+  letter-spacing: var(--font-letterspacing-3);
+}
+
+:where(section) {
+  margin-block-end: var(--size-fluid-6);
+}
+
+:where(.grid) {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  gap: var(--size-8);
+  align-items: start;
+}
+
+:where(.flex) {
+  display: flex;
+  gap: var(--size-4);
+  align-items: center;
+}
+
+:where(article) {
+  background: var(--surface-2);
+  padding: var(--size-8);
+  box-shadow: var(--shadow-3);
+  border-radius: var(--radius-2);
+  display: grid;
+  align-items: start;
+  height: 100%;
+}
+
+:where(article:hover) {
+  box-shadow: var(--shadow-4);
+}
+
+:where(footer) {
+  margin-inline: auto;
+  text-align: center;
+  padding-block: var(--size-4);
+
+  & :where(h4) {
+    margin-inline: auto;
+  }
+}
+
+:where(section.hero) {
+  display: grid;
+  gap: var(--size-4);
+  place-items: center;
+  margin-block: var(--size-10) var(--size-11);
+  margin-inline: auto;
+  text-align: center;
+}
+
+:where(section.hero h1) {
+  color: var(--brand);
+  animation: var(--animation-shake-y);
+  letter-spacing: var(--font-letterspacing-0);
+}
+
+:where(.hero button) {
+  background-color: var(--brand);
+  padding-block: var(--size-4);
+  padding-inline: var(--size-8);
+  font-size: var(--font-size-fluid-1);
+  box-shadow: var(--shadow-4);
+  border: none;
+  color: var(--brand-contrast);
 }
 
 h1,
@@ -68,56 +128,24 @@ h3,
 h4,
 h5,
 h6 {
-  margin-block: 1rem;
-}
-
-button {
-  padding: var(--size-1) var(--size-3);
+  line-height: 1em;
+  margin-block-end: var(--size-4);
 }
 
 p {
-  padding-block: var(--size-1);
+  max-width: var(--size-content-3);
+  margin-block-end: var(--size-4);
 }
 
-section.hero {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 1.5rem;
-  margin-block: 4rem 6rem;
-  margin-inline: auto;
-  text-align: center;
-  max-width: 78ch;
-  & h1 {
-    font-size: 3em;
-    line-height: 1.1;
-    text-wrap: balance;
-    margin-inline: auto;
-    margin: 0;
-    max-width: 78ch;
-  }
-  & h4 {
-    text-wrap: balance;
-    font-weight: var(--font-weight-5);
-    margin-inline: auto;
-    width: 50ch;
-  }
+:where(h1) {
+  color: var(--brand);
 }
 
-.eyebrow {
-  font-weight: var(--font-weight-7);
-  letter-spacing: 0.3em;
-  text-transform: uppercase;
-  text-align: center;
-  max-width: 78ch;
+:where(ul li) {
+  margin-block-end: var(--size-3);
+  padding-inline: var(--size-2);
 }
 
-.number {
-  font-variant-numeric: tabular-nums;
-}
-
-footer {
-  margin-block: 4rem;
-  max-width: var(--size-content-2);
-  margin-inline: auto;
-  text-align: center;
+:where(.flow > *):not(:last-child) {
+  margin-block-end: var(--size-4);
 }
