@@ -74,7 +74,9 @@ main {
 }
 
 :where(article) {
+  --surface-2: var(--gray-1);
   background: var(--surface-2);
+  border: var(--border-size-1) solid var(--gray-2);
   padding: var(--size-8);
   box-shadow: var(--shadow-3);
   border-radius: var(--radius-2);
@@ -148,4 +150,8 @@ p {
 
 :where(.flow > *):not(:last-child) {
   margin-block-end: var(--size-4);
+}
+
+:where(.number) {
+  font-variant-numeric: tabular-nums;
 }
