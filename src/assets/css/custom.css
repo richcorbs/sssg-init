@@ -5,10 +5,12 @@
   --accent-dark: var(--green-6);
   --brand-light-contrast: var(--gray-0);
   --brand-dark-contrast: var(--violet-1);
+  --surface-2: var(--gray-1);
   @media (prefers-color-scheme: dark) {
     --brand: var(--brand-dark);
     --brand-contrast: var(--brand-dark-contrast);
     --accent: var(--accent-dark);
+    --surface-2: var(--gray-8);
   }
   --brand: var(--brand-light);
   --brand-contrast: var(--brand-light-contrast);
@@ -74,9 +76,8 @@ main {
 }
 
 :where(article) {
-  --surface-2: var(--gray-1);
   background: var(--surface-2);
-  border: var(--border-size-1) solid var(--gray-2);
+  border: var(--border-size-1) solid var(--surface-3);
   padding: var(--size-8);
   box-shadow: var(--shadow-3);
   border-radius: var(--radius-2);
