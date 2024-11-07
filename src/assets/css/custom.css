@@ -84,6 +84,9 @@ main {
   display: grid;
   align-items: start;
   height: 100%;
+  & :where(code) {
+    --surface-2: var(--surface-3);
+  }
 }
 
 :where(article:hover) {
